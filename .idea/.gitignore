@@ -1,0 +1,9 @@
+
+# Default ignored files
+/workspace.xml
+/vcs.xml
+/NobilityGroups.iml
+/modules.xml
+/misc.xml
+/compiler.xml
+**/libraries/

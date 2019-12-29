@@ -1,0 +1,5 @@
+name: NobilityGroups
+main: net.civex4.NobilityGroups
+version: ${project.version}
+author: KingVictoria
+depend: [NameLayer, CivModCore]
