@@ -14,9 +14,12 @@ public class NobilityGroups extends ACivMod {
         instance = this;
         logger = getLogger();
 
+        /*
+         * Not needed until NameLayer is integrated
         if (!Bukkit.getPluginManager().isPluginEnabled("NameLayer")){
             logger.info("NobilityGroups is shutting down because it could not find NameLayer");
             this.getPluginLoader().disablePlugin(this); // shut down
         }
+        */
     }
 }
