@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Privilege {
 
-    private static List<Privilege> privileges;
+    private static List<Privilege> privileges = new ArrayList<>();
 
     public static List<Privilege> getPrivileges() {
         return new ArrayList<Privilege>(privileges);
