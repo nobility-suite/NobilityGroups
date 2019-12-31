@@ -22,6 +22,10 @@ public class Member {
         return privileges;
     }
 
+    public UUID getUUID() {
+        return uuid;
+    }
+
     public Guild getPrimaryGuild() {
         return primaryGuild;
     }
