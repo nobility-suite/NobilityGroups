@@ -1,6 +1,7 @@
 package net.civex4.group;
 
 import net.civex4.group.privilege.PrivilegeList;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,12 @@ public class Group {
         return null;
     }
 
+    public static List<Group> getGroupsOfPlayer(Player player) {
+        List<Group> groupsIn = new ArrayList<>();
+        for(Group group: groups) if(group.hasMember(player.getUniqueId())) groupsIn.add(group);
+        return groupsIn;
+    }
+
     private PrivilegeList privilegeMasterList;  // all the permissions that are relevant for this group
     private PrivilegeList genericPrivileges; // privileges given when joining the group
     private List<Guild> guilds;
@@ -42,6 +49,11 @@ public class Group {
         creator.privileges().addPrivilegeList(privilegeMasterList);
 
         groups.add(this);
+    }
+
+    public boolean hasMember(UUID uuid) {
+        for(Member member: members) if(member.getUUID().equals(uuid)) return true;
+        return false;
     }
 
     public Member getMember(UUID uuid) {
