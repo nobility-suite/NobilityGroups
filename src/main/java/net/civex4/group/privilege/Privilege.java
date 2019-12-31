@@ -17,7 +17,7 @@ public class Privilege {
 
     public static Privilege getPrivilege(String name) {
         for(Privilege privilege: privileges) if(privilege.getName().equals(name)) return privilege;
-        throw new IllegalArgumentException("There is no privilege by name '" + name + "'");
+        return null;
     }
 
     private String name;
@@ -26,12 +26,10 @@ public class Privilege {
     public Privilege(String name) {
         this.name = name;
 
-        try {
-            Privilege privilege = getPrivilege(name);
-            this.predecessors = privilege.predecessors;
-        } catch (IllegalArgumentException e) {
-            privileges.add(this);
-        }
+        Privilege privilege = getPrivilege(name);
+
+        if(privilege == null) privileges.add(this);
+        else predecessors = privilege.predecessors;
     }
 
     public Privilege(String name, List<Privilege> predecessors) {
