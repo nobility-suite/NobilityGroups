@@ -15,6 +15,12 @@ public class PrivilegeList {
         privileges = new ArrayList<>();
     }
 
+    protected PrivilegeList copy() {
+        PrivilegeList copy = new PrivilegeList();
+        copy.privileges = new ArrayList<>(this.privileges);
+        return copy;
+    }
+
     public boolean hasPrivilege(Privilege privilege) {
         for(Privilege privilegeToCheck: privileges) {
             if(privilegeToCheck.equals(privilege)) return true;
